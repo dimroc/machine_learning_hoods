@@ -35,6 +35,7 @@ defmodule Mix.Tasks.Mlh.JsonlToCsv do
     |> Stream.map(&to_json/1)
     |> Stream.map(&without_boroughs/1)
     |> Stream.filter(&has_text_and_neighborhoods/1)
+    |> Stream.filter(&without_midtown/1)
     |> Stream.map(&to_csv_list/1)
 
     Stream.concat(header, rows)
@@ -59,6 +60,10 @@ defmodule Mix.Tasks.Mlh.JsonlToCsv do
 
   defp has_text_and_neighborhoods(json) do
     json["text"] != nil && is_list(json["neighborhoods"]) && length(json["neighborhoods"]) > 0
+  end
+
+  defp without_midtown(json) do
+    hd(json["neighborhoods"]) != "Midtown"
   end
 
   defp to_csv_list(json) do
