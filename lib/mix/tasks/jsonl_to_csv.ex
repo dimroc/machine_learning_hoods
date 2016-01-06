@@ -29,11 +29,15 @@ defmodule Mix.Tasks.Mlh.JsonlToCsv do
     IO.puts "Converting #{jsonl_path} to #{csv_destination}"
     output = File.stream!(csv_destination, [:raw, :delayed_write])
 
-    File.stream!(jsonl_path)
+    header = [["Text","Neighborhood"]]
+
+    rows = File.stream!(jsonl_path)
     |> Stream.map(&to_json/1)
     |> Stream.map(&without_boroughs/1)
     |> Stream.filter(&has_text_and_neighborhoods/1)
     |> Stream.map(&to_csv_list/1)
+
+    Stream.concat(header, rows)
     |> CSV.encode
     |> Stream.into(output)
     |> Stream.run
