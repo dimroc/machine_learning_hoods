@@ -36,6 +36,7 @@ defmodule MachineLearningHoods.Mixfile do
       {:gettext, "~> 0.9"},
       {:phoenix, "~> 1.1.1"},
       {:phoenix_ecto, "~> 2.0"},
+      {:phoenix_haml, github: "chrismccord/phoenix_haml"},
       {:phoenix_html, "~> 2.3"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:postgrex, ">= 0.0.0"},
