@@ -39,3 +39,5 @@ config :machine_learning_hoods, MachineLearningHoods.Repo,
   database: "machine_learning_hoods_dev",
   hostname: "localhost",
   pool_size: 10
+
+import_config "environment.exs"

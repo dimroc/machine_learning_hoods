@@ -17,3 +17,5 @@ config :machine_learning_hoods, MachineLearningHoods.Repo,
   database: "machine_learning_hoods_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+import_config "environment.exs"
