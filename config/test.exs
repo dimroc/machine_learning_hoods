@@ -12,8 +12,6 @@ config :logger, level: :warn
 # Configure your database
 config :machine_learning_hoods, MachineLearningHoods.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
   database: "machine_learning_hoods_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox

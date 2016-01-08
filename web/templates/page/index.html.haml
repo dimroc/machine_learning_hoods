@@ -1,6 +1,19 @@
 .jumbotron
-  %h2= gettext "Welcome to %{name}", name: "Phoenix!"
+  -#%h3= gettext "Enter text to see where that message belongs"
   %p.lead
-    A productive web framework that
-    %br
-    does not compromise speed and maintainability.
+    %form.form.form-hood{method: "get"}
+      .input-group
+        %input.form-control{placeholder: "Place text...", name: "q", type: "search", value: @q}
+        %span.input-group-btn
+          %button.btn.btn-primary{type: "submit"} Predict Neighborhood
+
+  - if Prediction.present?(@prediction) do
+    .prediction.row
+      %table.table.table-striped
+        - for { label, hood, value } <- prediction_rows(@prediction) do
+          %tr
+            %td
+              - if label != "Other" do
+                = label
+            %td.hood= hood
+            %td= value

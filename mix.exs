@@ -19,7 +19,7 @@ defmodule MachineLearningHoods.Mixfile do
   def application do
     [mod: {MachineLearningHoods, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :ex_aws, :httpoison]]
   end
 
   # Specifies which paths to compile per environment.
@@ -33,6 +33,8 @@ defmodule MachineLearningHoods.Mixfile do
     [
       {:cowboy, "~> 1.0"},
       {:csv, "~> 1.2.0"},
+      {:ex_aws, path: "../ex_aws"},
+      {:httpoison, "~> 0.8.0"},
       {:gettext, "~> 0.9"},
       {:phoenix, "~> 1.1.1"},
       {:phoenix_ecto, "~> 2.0"},
