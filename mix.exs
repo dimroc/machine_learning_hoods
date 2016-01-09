@@ -33,7 +33,7 @@ defmodule MachineLearningHoods.Mixfile do
     [
       {:cowboy, "~> 1.0"},
       {:csv, "~> 1.2.0"},
-      {:ex_aws, path: "../ex_aws"},
+      {:ex_aws, github: "dimroc/ex_aws"},
       {:httpoison, "~> 0.8.0"},
       {:gettext, "~> 0.9"},
       {:phoenix, "~> 1.1.1"},

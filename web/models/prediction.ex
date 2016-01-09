@@ -7,9 +7,8 @@ defmodule MachineLearningHoods.Prediction do
   def predict(nil), do: %{}
   def predict(""), do: %{}
   def predict(text) do
-    model_id = Application.get_env(:machine_learning_hoods, :machinelearning)[:ml_model_id]
     record = %{"Text" => text}
-    {:ok, prediction} = ExAws.MachineLearning.predict(model_id, record)
+    {:ok, prediction} = ExAws.MachineLearning.predict(record)
     prediction["Prediction"]
   end
 
