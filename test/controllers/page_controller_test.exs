@@ -3,6 +3,6 @@ defmodule MachineLearningHoods.PageControllerTest do
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"
-    assert html_response(conn, 200) =~ "Enter text"
+    assert html_response(conn, 200) =~ "Machine Learning Manhattan"
   end
 end
