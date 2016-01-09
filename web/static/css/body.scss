@@ -1,11 +1,66 @@
+@import 'bootstrap/variables';
+
+body {
+  font-family: 'Open Sans';
+}
+
+.fixed-narrow {
+  @media (max-width: $screen-sm-min) {
+    width: 300px;
+  }
+}
+
+header.header {
+  @media (max-width: $screen-sm-min) {
+    border-bottom: 0;
+
+    h1 {
+      margin: 20px 0px;
+    }
+    h1 small {
+      display: block;
+    }
+  }
+}
+
 .form-hood {
-  width: 400px;
+  @extend .fixed-narrow;
   margin: auto;
+  @media (max-width: $screen-sm-min) {
+    width: 100%;
+  }
 }
 
 .prediction {
   text-align: left;
-  h3 {
-    display: inline-block;
+  padding: 15px;
+
+  table.table {
+    @extend .fixed-narrow;
+    width: 100%;
+    margin: auto;
+  }
+
+  .table > tbody > tr > td {
+    border: 0;
+    &.score {
+      font-size: 10px;
+      vertical-align: bottom;
+      text-align: right;
+    }
+  }
+
+  tr td {
+    font-size: 10px;
+  }
+
+  tr:first-child td {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: $screen-sm-min) {
+  h1 {
+    font-size: 24px;
   }
 }

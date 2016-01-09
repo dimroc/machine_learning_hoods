@@ -18,7 +18,10 @@
           <ul class="nav nav-pills pull-right">
           </ul>
         </nav>
-        <h1>Machine Learning Manhattan</h1>
+        <h1>
+          Machine Learning Manhattan
+          <small>(+ cool Brooklyn)</small>
+        </h1>
       </header>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>

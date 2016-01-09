@@ -1,5 +1,4 @@
 .jumbotron
-  -#%h3= gettext "Enter text to see where that message belongs"
   %p.lead
     %form.form.form-hood{method: "get"}
       .input-group
@@ -11,9 +10,6 @@
     .prediction.row
       %table.table.table-striped
         - for { label, hood, value } <- prediction_rows(@prediction) do
-          %tr
-            %td
-              - if label != "Other" do
-                = label
+          %tr{class: "#{String.downcase(label)}" }
             %td.hood= hood
-            %td= value
+            %td.score= Float.round value, 4

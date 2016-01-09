@@ -3,8 +3,7 @@ defmodule MachineLearningHoods.PageView do
   alias MachineLearningHoods.Prediction
 
   def prediction_rows(prediction) do
-    rows = [{"Winner", prediction["predictedLabel"], 1.00}]
-    rows = rows ++ for { hood, value } <- prediction["predictedScores"] do
+    rows = for { hood, value } <- prediction["predictedScores"] do
       {"Other", hood, value}
     end
 
