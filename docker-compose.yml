@@ -1,0 +1,12 @@
+# docker-compose.yml
+web:
+  build: .
+  environment:
+    DATABASE_URL: ecto://db/machine_learning_hoods_prod
+    PORT: 4001
+  links:
+    - db
+  ports:
+    - 4001:4001
+db:
+  image: postgres:9.4

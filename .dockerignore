@@ -1,0 +1,9 @@
+.node_modules
+_build
+.git
+.envrc
+tmp
+Dockerfile
+deps
+*.ez
+erl_crash.dump
