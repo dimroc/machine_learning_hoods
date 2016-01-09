@@ -10,6 +10,6 @@
     .prediction.row
       %table.table.table-striped
         - for { label, hood, value } <- prediction_rows(@prediction) do
-          %tr{class: "#{String.downcase(label)}" }
+          %tr
             %td.hood= hood
             %td.score= Float.round value, 4
