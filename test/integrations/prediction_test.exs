@@ -4,7 +4,7 @@ defmodule MachineLearningHoods.IntegrationPredictionTest do
 
   test "#predict" do
     actual = Prediction.predict("What is going on?")
-    assert Map.has_key?(actual, "predictedLabel")
+    assert Prediction.present? actual
   end
 end
 

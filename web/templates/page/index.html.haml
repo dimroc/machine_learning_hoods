@@ -9,7 +9,7 @@
   - if Prediction.present?(@prediction) do
     .prediction.row
       %table.table.table-striped
-        - for { label, hood, value } <- prediction_rows(@prediction) do
+        - for { label, hood, value } <- score_rows(@prediction) do
           %tr
             %td.hood= hood
             %td.score= Float.round value, 4
