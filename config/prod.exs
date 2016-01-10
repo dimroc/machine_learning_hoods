@@ -13,7 +13,7 @@ use Mix.Config
 # which you typically run after static files are built.
 config :machine_learning_hoods, MachineLearningHoods.Endpoint,
   http: [port: {:system, "PORT"}],
-  url: [host: "example.com", port: 80],
+  url: [host: "machinelearninghoods.dimroc.com", port: 80],
   cache_static_manifest: "priv/static/manifest.json"
 
 # Do not print debug messages in production
@@ -60,7 +60,15 @@ config :logger, level: :info
 #
 #     config :machine_learning_hoods, MachineLearningHoods.Endpoint, root: "."
 
-# Finally import the config/prod.secret.exs
-# which should be versioned separately.
-import_config "prod.secret.exs"
+
+# Configure the secret key
+config :machine_learning_hoods, MachineLearningHoods.Endpoint,
+  secret_key_base: System.get_env("SECRET_KEY_BASE")
+
+# Configure your database
+config :machine_learning_hoods, MachineLearningHoods.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  url: System.get_env("DATABASE_URL"),
+  pool_size: 20
+
 import_config "environment.exs"

@@ -1,8 +1,15 @@
 # docker-compose.yml
 web:
   build: .
+  #env_file: .envrc # Doesn't work with .envrc example because of exports
   environment:
-    DATABASE_URL: ecto://db/machine_learning_hoods_prod
+    AWS_ACCESS_KEY_ID:
+    AWS_SECRET_ACCESS_KEY:
+    AWS_REGION:
+    AWS_ML_PREDICTION_URL:
+    AWS_ML_MODEL_ID:
+    SECRET_KEY_BASE:
+    DATABASE_URL: ecto://postgres:postgres@db/machine_learning_hoods_prod
     PORT: 4001
   links:
     - db
@@ -10,3 +17,6 @@ web:
     - 4001:4001
 db:
   image: postgres:9.4
+  environment:
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: postgres
