@@ -8,5 +8,8 @@ build:
 push:
 	$(DOCKER) push $(REPO):$(TAG)
 
-all: build push
+redeploy:
+	tutum service redeploy web-mlh.MachineLearningHoods
+
+all: build push redeploy
 
