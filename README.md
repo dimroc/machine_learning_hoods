@@ -1,19 +1,43 @@
 # MachineLearningHoods
 
-To start your Phoenix app:
+Uses [AWS Machine Learning](https://aws.amazon.com/machine-learning/) to predict
+which neighborhood a string of text most likely originates from.
 
-  1. Install dependencies with `mix deps.get`
-  2. Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  3. Start Phoenix endpoint with `mix phoenix.server`
+## How
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+- Using a dataset of ~1G of geo-tagged tweets, we create a CSV with two columns: text and neighborhood.
+- After training and evaluating a model with this data, we expose the real-time endpoint via this elixir application.
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
+## Takeaways
 
-## Learn more
+- Molding the training data to create a better model is the real challenge here.
+- Does my data even have statistical correlations or is it just noise?
+- Iterate, iterate, iterate on the model and evaluation data is what it seems people do.
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: http://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+![Prediction Matrix](https://raw.githubusercontent.com/dimroc/machine_learning_hoods/master/web/static/assets/images/PredictionMatrix.jpg)
+![Neighborhood Categories](https://raw.githubusercontent.com/dimroc/machine_learning_hoods/master/web/static/assets/images/NeighborhoodCategories.jpg)
+
+### Input Schema
+
+```json
+{
+  "version": "1.0",
+    "rowId": null,
+    "rowWeight": null,
+    "targetAttributeName": "Neighborhood",
+    "dataFormat": "CSV",
+    "dataFileContainsHeader": true,
+    "attributes": [
+    {
+      "attributeName": "Text",
+      "attributeType": "TEXT"
+    },
+    {
+      "attributeName": "Neighborhood",
+      "attributeType": "CATEGORICAL"
+    }
+    ],
+    "excludedAttributeNames": []
+}
+```
+
