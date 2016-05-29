@@ -9,7 +9,8 @@ push:
 	$(DOCKER) push $(REPO):$(TAG)
 
 redeploy:
+	# tutum has been deprecated for docker cloud
 	tutum service redeploy web-mlh.MachineLearningHoods
 
-all: build push redeploy
+all: build push
 
