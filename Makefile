@@ -1,5 +1,5 @@
 DOCKER = docker
-REPO = tutum.co/dimroc/machinelearninghoods
+REPO = dimroc/machinelearninghoods
 TAG = latest
 
 build:
