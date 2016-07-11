@@ -14,7 +14,7 @@ defmodule MachineLearningHoods.PageController do
   end
 
   def index(conn, _params) do
-    q = "I love this hipster shit"
+    q = "I love this hipster stuff"
     index(conn, %{"q" => q})
   end
 
